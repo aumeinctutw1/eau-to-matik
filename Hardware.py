@@ -3,20 +3,21 @@ import RPi.GPIO as GPIO
 import time
 import smbus
 from Hardware import Hardware
-from settings import GET_TEMPERATURE, RELAY_PIN, PUMP_OUPUT, DEVICE_ADDRESS, SET_REFERENCE_WET, SET_REFERENCE_DRY, GET_SOIL_MOISTURE, REFERENCE_DRY, REFERENCE_WET, GPIO_ECHO, GPIO_TRIGGER, MIN_WATER_LEVEL, MAX_WATER_LEVEL
+from settings import GET_TEMPERATURE, RELAY_PIN, PUMP_OUPUT, DEVICE_ADDRESS, SET_REFERENCE_WET, SET_REFERENCE_DRY, GET_SOIL_MOISTURE, REFERENCE_DRY, REFERENCE_WET, GPIO_ECHO, GPIO_TRIGGER, MIN_WATER_LEVEL, MAX_WATER_LEVEL, MIN_SOIL_MOISTURE_LEVEL
 
 
 class EauToMatik():
     def __init__(self):
         self.Pump = Pump()
         self.WaterLevelController = WaterLevelController()
+        self.MoistureSensor = MoistureSensor()
 
     def run(self):
-        if (self.WaterLevelController.hasEnoughWater()):
+        if (self.WaterLevelController.hasEnoughWater() and self.MoistureSensor.getAvgMoistureLevel() < MIN_SOIL_MOISTURE_LEVEL):
             self.Pump.water()
 
 
-class moistureSensor():
+class MoistureSensor():
     def __init__(self):
         # init the bus
         DEVICE_BUS = 1
@@ -43,10 +44,9 @@ class moistureSensor():
         avgMoisture = round(moisture[0]/2.55, 1)
         return avgMoisture
 
-    def getTemperature(self):
+    def getSoilTemperature(self):
         temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
         return temp
-
 
 class Relay(OutputDevice):
     def __init__(self, pin, active_high):

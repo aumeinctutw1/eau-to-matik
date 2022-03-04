@@ -21,3 +21,4 @@ GET_TEMPERATURE = 0x74
 VOLUME_TO_WATER = 200  # in ml
 MIN_WATER_LEVEL = 5  # in cm
 MAX_WATER_LEVEL = 20  # high position of ultrasonic sensor
+MIN_SOIL_MOISTURE_LEVEL = 30 # in %
