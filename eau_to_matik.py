@@ -1,4 +1,4 @@
-from Hardware import EauToMatik
+from EauToMatik import EauToMatik
 
 eauToMatik = EauToMatik()
 
