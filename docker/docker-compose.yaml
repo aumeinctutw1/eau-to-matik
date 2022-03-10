@@ -24,8 +24,8 @@ services:
       - DOCKER_INFLUXDB_INIT_ORG=eau-to-matik
       - DOCKER_INFLUXDB_INIT_BUCKET=eau-to-matik
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      # TODO: specify a token
-      # - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
+      # if Token changed, then don't forget to change it in "settings.py" too
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=iQYE83K9sUfEUslk3rQaf7mxsXbX3wO30b6eefPjnWvzG-H1JT7feg9CEsKMu7C3f2satvLrsHuKPm6c0aDukw==
 
 volumes:
   grafana_data:
