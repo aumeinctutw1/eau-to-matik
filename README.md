@@ -1,6 +1,6 @@
 # embedded3
 
-# Install SMBUS and activate I2C
+## Install SMBUS and activate I2C
 
 ```bash
 sudo raspi-config
@@ -15,4 +15,11 @@ sudo reboot
 Check the connection of the device:
 ```bash
 sudo i2cdetect -y 1
+```
+
+### If not already installed, install the smbus libraries
+
+```bash
+sudo apt update
+sudo apt install python-smbus python3-smbus python-dev python3-dev i2c-tools
 ```
