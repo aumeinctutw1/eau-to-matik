@@ -14,6 +14,9 @@ class WaterLevelController():
         volumeWater = (waterLevel / CONTAINER_HEIGHT) * CONTAINER_VOLUME
         
         return volumeWater
+
+    def getWaterLevelInProcent(self):
+        return self.getVolumeWaterInContainer() / CONTAINER_VOLUME
         
     def hasEnoughWater(self, volumeWaterToBeGiven):
         return self.getVolumeWaterInContainer() > volumeWaterToBeGiven
