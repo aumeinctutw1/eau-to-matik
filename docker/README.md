@@ -13,7 +13,7 @@ Execute the installation script:
 ## Create Grafana and InfluxDB containers
 Create Grafana and InfluxDB container from `docker-compose.yaml` file:
 ```bash
-sudo docker-compose up -d
+docker-compose up -d
 ```
 ### Grafana
 - After creating the container, Grafana should be accessible under `http//<RPI-IP>`
