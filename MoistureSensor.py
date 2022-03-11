@@ -39,5 +39,10 @@ class MoistureSensor():
         return avgMoisture
 
     def getSoilTemperature(self):
-        temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
+        try:
+            temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
+        except Exception as e:
+            print(type(e))
+            temp = 0
+
         return temp
