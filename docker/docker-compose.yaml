@@ -1,15 +1,6 @@
 version: '3'
 
 services:
-  grafana:
-    image: grafana/grafana-oss:latest
-    container_name: grafana
-    ports:
-      - "80:3000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    restart: unless-stopped
-  
   influxdb:
     container_name: influxdb
     image: influxdb
@@ -24,8 +15,19 @@ services:
       - DOCKER_INFLUXDB_INIT_ORG=eau-to-matik
       - DOCKER_INFLUXDB_INIT_BUCKET=eau-to-matik
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      # if Token changed, then don't forget to change it in "settings.py" too
+      # if Token changed, then don't forget to change it in "settings.py" 
+      # and "grafana/provisioning/datasources/influxdb.yaml" too
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=iQYE83K9sUfEUslk3rQaf7mxsXbX3wO30b6eefPjnWvzG-H1JT7feg9CEsKMu7C3f2satvLrsHuKPm6c0aDukw==
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "80:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
 
 volumes:
   grafana_data:

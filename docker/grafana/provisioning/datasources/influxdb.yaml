@@ -1,0 +1,14 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    secureJsonData:
+      token: iQYE83K9sUfEUslk3rQaf7mxsXbX3wO30b6eefPjnWvzG-H1JT7feg9CEsKMu7C3f2satvLrsHuKPm6c0aDukw==
+    jsonData:
+      version: Flux
+      organization: eau-to-matik
+      defaultBucket: eau-to-matik
+      tlsSkipVerify: true
