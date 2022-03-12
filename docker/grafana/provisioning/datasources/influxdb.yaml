@@ -5,6 +5,7 @@ datasources:
     type: influxdb
     access: proxy
     url: http://influxdb:8086
+    uid: P951FEA4DE68E13C5
     secureJsonData:
       token: iQYE83K9sUfEUslk3rQaf7mxsXbX3wO30b6eefPjnWvzG-H1JT7feg9CEsKMu7C3f2satvLrsHuKPm6c0aDukw==
     jsonData:
