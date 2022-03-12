@@ -19,16 +19,30 @@ class MoistureSensor():
 
     # gets the directly measured value
     def getMoistureLevel(self):
-        moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
+        try:
+            moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
+        except Exception as e:
+            print(type(e))
+            measuredMoisture = 0
         measuredMoisture = round(moisture[1]/2.55, 1)
         return measuredMoisture
 
     # gets the avg value, last 30 seconds
     def getAvgMoistureLevel(self):
-        moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
+        try: 
+            moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
+        except Exception as e:
+            print(type(e))
+            avgMoisture = 0
+
         avgMoisture = round(moisture[0]/2.55, 1)
         return avgMoisture
 
     def getSoilTemperature(self):
-        temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
+        try:
+            temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
+        except Exception as e:
+            print(type(e))
+            temp = 0
+
         return temp
