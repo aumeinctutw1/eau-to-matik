@@ -15,15 +15,11 @@ class EauToMatik():
         self.saveDataFromSensors()
 
         # check if watering is necessary
-        if (
-                self.soilIsDry() and
-                self.WaterLevelController.hasEnoughWater(VOLUME_TO_WATER)
-            ):
+        if (self.soilIsDry() and self.WaterLevelController.hasEnoughWater()):
             # activate pump
             self.Pump.water(VOLUME_TO_WATER)
             # save volume of water given to plant
             self.Exporter.exportPumpedWater(VOLUME_TO_WATER)
-
             self.saveDataFromSensors()
 
 
