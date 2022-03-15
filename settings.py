@@ -1,6 +1,6 @@
 # pump
 RELAY_PIN = 12
-PUMP_OUPUT = 1200 / 3600  # in ml/second
+PUMP_OUPUT = 1500 / 3600  # in ml/second
 
 # ultrasonic sensor
 GPIO_ECHO = 24
