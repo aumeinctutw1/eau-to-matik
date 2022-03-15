@@ -1,5 +1,5 @@
 from UltrasonicSensor import UltrasonicSensor
-from settings import MIN_WATER_LEVEL, ULTRASONIC_SENSOR_DISTANCE_TO_TOP, CONTAINER_HEIGHT, CONTAINER_VOLUME
+from settings import MIN_WATER_LEVEL, ULTRASONIC_SENSOR_DISTANCE_TO_TOP, CONTAINER_HEIGHT, CONTAINER_VOLUME, VOLUME_TO_WATER
 
 class WaterLevelController():
     def __init__(self):
@@ -18,5 +18,5 @@ class WaterLevelController():
     def getWaterLevelInProcent(self):
         return self.getVolumeWaterInContainer() / CONTAINER_VOLUME
         
-    def hasEnoughWater(self, volumeWaterToBeGiven):
-        return self.getVolumeWaterInContainer() > volumeWaterToBeGiven
+    def hasEnoughWater(self):
+        return self.getVolumeWaterInContainer() > VOLUME_TO_WATER
