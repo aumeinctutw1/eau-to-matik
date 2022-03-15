@@ -23,7 +23,10 @@ MIN_WATER_LEVEL = 0  # in cm
 MIN_SOIL_MOISTURE_LEVEL = 30 # in %
 CONTAINER_VOLUME = 5000 # in ml
 CONTAINER_HEIGHT = 30 # in cm
-ULTRASONIC_SENSOR_DISTANCE_TO_TOP = 0 # in cm (negative values ok)
+# distance from the ultrasonic sensor to the top of the container
+# over the top of the container, then positive value
+# under the top of the container, then negative value
+ULTRASONIC_SENSOR_DISTANCE = 0 # in cm (negative value ok)
 
 ## InfluxDB
 ### these settings are specified in "docker-compose.yaml"
