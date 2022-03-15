@@ -9,9 +9,9 @@ class Pump():
 
     def water(self, volume):
         self.relay.on()
-        print("sleep time: ", self.getWateringDuration(volume))
         time.sleep(self.getWateringDuration(volume))
         self.relay.off()
 
     def getWateringDuration(self, volume):
-        return volume / self.outputCapacity
+        #return volume / self.outputCapacity   
+        return 10
