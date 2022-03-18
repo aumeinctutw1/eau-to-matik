@@ -407,7 +407,7 @@
           "refId": "A"
         }
       ],
-      "title": "Summary of pumped water",
+      "title": "Volume of pumped water",
       "type": "stat"
     },
     {
@@ -462,6 +462,7 @@
             }
           },
           "mappings": [],
+          "max": 100,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -573,6 +574,7 @@
             }
           },
           "mappings": [],
+          "max": 50,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -675,6 +677,8 @@
             }
           },
           "mappings": [],
+          "max": 100,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -776,7 +780,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "mlitre"
         },
         "overrides": []
       },
@@ -825,13 +830,13 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Eau-to-matik",
   "uid": "CN0qh_Lnk",
-  "version": 2,
+  "version": 6,
   "weekStart": ""
 }
