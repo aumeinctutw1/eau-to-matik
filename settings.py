@@ -1,5 +1,5 @@
 # pump
-RELAY_PIN = 12
+RELAY_PIN = 6
 PUMP_OUPUT = 1500 / 3600  # in ml/second
 
 # ultrasonic sensor
@@ -20,7 +20,7 @@ GET_TEMPERATURE = 0x74
 # personal settings
 VOLUME_TO_WATER = 200  # in ml
 MIN_WATER_LEVEL = 0  # in cm
-MIN_SOIL_MOISTURE_LEVEL = 30 # in %
+MIN_SOIL_MOISTURE_LEVEL = 20 # in %
 CONTAINER_VOLUME = 2400 # in ml
 CONTAINER_HEIGHT = 24 # in cm
 # distance from the ultrasonic sensor to the top of the container
