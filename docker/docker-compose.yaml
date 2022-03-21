@@ -18,6 +18,7 @@ services:
       # if Token changed, then don't forget to change it in "settings.py" 
       # and "grafana/provisioning/datasources/influxdb.yaml" too
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=iQYE83K9sUfEUslk3rQaf7mxsXbX3wO30b6eefPjnWvzG-H1JT7feg9CEsKMu7C3f2satvLrsHuKPm6c0aDukw==
+    restart: always
 
   grafana:
     image: grafana/grafana-oss:latest
@@ -27,7 +28,7 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
-    restart: unless-stopped
+    restart: always
 
 volumes:
   grafana_data:

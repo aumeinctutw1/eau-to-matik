@@ -1,5 +1,15 @@
-from gpiozero import OutputDevice
+from settings import RELAY_PIN
+import RPi.GPIO as GPIO
+import time
 
-class Relay(OutputDevice):
-    def __init__(self, pin, active_high):
-        super(Relay, self).__init__(pin, active_high)
+class Relay():
+    def __init__(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(RELAY_PIN, GPIO.OUT)
+
+    def on(self):
+        GPIO.output(RELAY_PIN, True)
+
+    def off(self):
+        GPIO.output(RELAY_PIN, False)
+        

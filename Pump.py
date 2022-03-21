@@ -13,4 +13,5 @@ class Pump():
         self.relay.off()
 
     def getWateringDuration(self, volume):
-        return volume / self.outputCapacity
+        return volume / self.outputCapacity   
+    

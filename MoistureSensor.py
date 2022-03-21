@@ -22,8 +22,9 @@ class MoistureSensor():
         try:
             moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
         except Exception as e:
-            print(type(e))
-            measuredMoisture = 0
+            print("getMoistureLevel error: ", type(e))
+            return 0.0
+
         measuredMoisture = round(moisture[1]/2.55, 1)
         return measuredMoisture
 
@@ -32,8 +33,8 @@ class MoistureSensor():
         try: 
             moisture = self.bus.read_i2c_block_data(DEVICE_ADDRESS, GET_SOIL_MOISTURE, 2)
         except Exception as e:
-            print(type(e))
-            avgMoisture = 0
+            print("getAvgMoistureLevel error: ", type(e))
+            return 0.0
 
         avgMoisture = round(moisture[0]/2.55, 1)
         return avgMoisture
@@ -42,7 +43,7 @@ class MoistureSensor():
         try:
             temp = self.bus.read_byte_data(DEVICE_ADDRESS, GET_TEMPERATURE)
         except Exception as e:
-            print(type(e))
-            temp = 0
+            print("getSoilTemperature error: ", type(e))
+            return 0
 
         return temp
