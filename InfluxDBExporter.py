@@ -40,6 +40,16 @@ class InfluxDBExporter:
             write_api.write(self.bucket, self.org, water)
             client.close()
 
+    def exportEnoughWater(self, enoughWater):
+        with InfluxDBClient(url=self.url, token=self.token, org=self.org) as client:
+            write_api = client.write_api(write_options=SYNCHRONOUS)
+            water = Point("water") \
+                .tag("device", "ultrasonic1") \
+                .field("enough_water_in_tank", enoughWater) \
+                .time(datetime.utcnow(), WritePrecision.NS)
+            write_api.write(self.bucket, self.org, water)
+            client.close()
+
     def exportPumpedWater(self, pumpedWater):
         with InfluxDBClient(url=self.url, token=self.token, org=self.org) as client:
             write_api = client.write_api(write_options=SYNCHRONOUS)

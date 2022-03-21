@@ -118,8 +118,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 5,
+        "h": 5,
+        "w": 4,
         "x": 0,
         "y": 1
       },
@@ -191,9 +191,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 5,
+        "h": 5,
+        "w": 4,
+        "x": 4,
         "y": 1
       },
       "id": 5,
@@ -260,9 +260,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 10,
+        "h": 5,
+        "w": 4,
+        "x": 8,
         "y": 1
       },
       "id": 15,
@@ -294,6 +294,84 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "Refill water container!"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enough_water_in_tank\")\n  //|> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "refId": "A"
+        }
+      ],
+      "title": "Container water level",
+      "type": "stat"
+    },
+    {
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -317,9 +395,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 4,
-        "x": 15,
+        "x": 16,
         "y": 1
       },
       "id": 20,
@@ -376,9 +454,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 19,
+        "h": 5,
+        "w": 4,
+        "x": 20,
         "y": 1
       },
       "id": 19,
@@ -416,7 +494,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 6
       },
       "id": 11,
       "panels": [],
@@ -505,7 +583,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 7
       },
       "id": 2,
       "options": {
@@ -596,7 +674,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 7
       },
       "id": 7,
       "options": {
@@ -633,7 +711,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 15
       },
       "id": 13,
       "panels": [],
@@ -700,7 +778,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 16
       },
       "id": 14,
       "options": {
@@ -789,7 +867,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 16
       },
       "id": 16,
       "options": {
@@ -830,13 +908,13 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Eau-to-matik",
   "uid": "CN0qh_Lnk",
-  "version": 6,
+  "version": 8,
   "weekStart": ""
 }
