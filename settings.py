@@ -1,6 +1,6 @@
 # pump
 RELAY_PIN = 6
-PUMP_OUPUT = 1500 / 3600  # in ml/second
+PUMP_OUPUT = 2000 / 60  # in ml/second
 
 # ultrasonic sensor
 GPIO_ECHO = 24
@@ -26,7 +26,7 @@ CONTAINER_HEIGHT = 24 # in cm
 # distance from the ultrasonic sensor to the top of the container
 # over the top of the container, then positive value
 # under the top of the container, then negative value
-ULTRASONIC_SENSOR_DISTANCE = -1.5 # in cm (negative value ok)
+ULTRASONIC_SENSOR_DISTANCE = -1 # in cm (negative value ok)
 
 ## InfluxDB
 ### these settings are specified in "docker-compose.yaml"
