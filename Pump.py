@@ -1,10 +1,10 @@
 from Relay import Relay
 import time
-from settings import RELAY_PIN, PUMP_OUPUT
+from settings import PUMP_OUPUT
 
 class Pump():
     def __init__(self):
-        self.relay = Relay(RELAY_PIN, False)
+        self.relay = Relay()
         self.outputCapacity = PUMP_OUPUT
 
     def water(self, volume):
