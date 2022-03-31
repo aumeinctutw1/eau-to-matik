@@ -21,10 +21,8 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Install Python and Docker-Compose
-sudo apt-get install libffi-dev libssl-dev
-sudo apt install python3-dev
-sudo apt install -y python3 python3-pip
-sudo pip3 install docker-compose
+sudo apt install -y libffi-dev libssl-dev python3-dev python3 python3-pip
+pip3 install docker-compose
 
 # Add current user to "docker" group
 sudo usermod -aG docker $USER
