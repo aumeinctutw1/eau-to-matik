@@ -144,7 +144,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"moisture_percent\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"moisture_percent\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -217,7 +217,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temp_celsius\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temp_celsius\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -286,7 +286,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"water_level_percent\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"water_level_percent\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -364,7 +364,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enough_water_in_tank\")\n  //|> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enough_water_in_tank\")\n  //|> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A"
         }
       ],
@@ -423,7 +423,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -481,7 +481,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -609,7 +609,7 @@
             "uid": "P951FEA4DE68E13C5"
           },
           "hide": false,
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"moisture_percent\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"moisture_percent\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -698,7 +698,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temp_celsius\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"soil\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temp_celsius\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -802,7 +802,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"water_level_percent\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"water_level_percent\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -892,7 +892,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] > 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
+          "query": "from(bucket: \"eau-to-matik\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"water\")\n  |> filter(fn: (r) => r[\"_field\"] == \"pumped_water_ml\")\n  |> filter(fn: (r) => r[\"_value\"] >= 0)\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n//  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
