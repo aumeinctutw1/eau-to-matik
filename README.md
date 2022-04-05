@@ -1,4 +1,5 @@
 # embedded3
+![Grafana Dashboard](assets/grafana_dashboard.jpeg)
 
 ## Install SMBUS and activate I2C
 
